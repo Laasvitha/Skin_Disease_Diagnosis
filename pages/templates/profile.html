@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5F5F5;
+        }
+
+        /* Profile Section */
+        .container {
+            width: 60%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #FFD0D0;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #10375C;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #257180;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #CB6040;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #CB6040;
+            color: white;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-btn:hover {
+            background-color: #257180;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background-color: #CB6040;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #257180;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        .disease-info,
+        .additional-info {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .disease-info h3,
+        .additional-info h3 {
+            font-size: 22px;
+            color: #257180;
+            margin-bottom: 10px;
+        }
+
+        .disease-info p,
+        .additional-info p {
+            font-size: 16px;
+            color: #514945;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .disease-info p strong,
+        .additional-info p strong {
+            color: #CB6040;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 20px 15px;
+            text-align: center;
+            border: 2px solid #CB6040;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: #F5918F;
+        }
+
+        .how-it-works h2 {
+            color: #257180;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            background-color: #FFF2D7;
+            padding: 15px;
+            width: 200px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1A1A19;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #1A1A19;
+            line-height: 1.4;
+        }
+
+        .step img {
+            width: 50px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Profile Section -->
+    <div class="container">
+        <h1>Let's Start Detecting</h1>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <img src="https://www.svgrepo.com/show/112340/upload.svg" alt="Upload Image">
+                    <h3>Step 1: Upload a Photo</h3>
+                    <p>Take a clear photo of the affected area on your skin and upload it here.</p>
+                </div>
+                <div class="step">
+                    <img src="https://static.vecteezy.com/system/resources/previews/016/314/420/large_2x/transparent-graphical-analysis-icon-free-png.png" alt="AI Analysis">
+                    <h3>Step 2: AI Analysis</h3>
+                    <p>Our Model analyzes the image and identifies potential concerns based on your skin condition.</p>
+                </div>
+                <div class="step">
+                    <img src="https://icon-library.com/images/report-icon-png/report-icon-png-11.jpg" alt="Receive Report">
+                    <h3>Step 3: Receive Your Report</h3>
+                    <p>You will receive a detailed report with insights and suggestions on the next steps for your care.</p>
+                </div>
+            </div>
+        </section>
+
+        <h2>Upload Image</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="uploadImage">Image Upload:</label>
+            <input type="file" id="uploadImage" name="uploadImage">
+            <label for="uploadImage" class="file-upload-btn">Choose File</label>
+            <button type="submit">Submit</button>
+        </form>
+        <hr>
+
+        {% if img %}
+        <div class="uploaded-image">
+            <h3>Uploaded Image:</h3>
+            <img src="{{ img }}" alt="Uploaded Image">
+        </div>
+        {% endif %}
+
+        {% if obj1 %}
+        <div class="disease-info">
+            <h3>Diagnosis:</h3>
+            <p><strong>Skin Disease:</strong> {{ obj1 }}</p>
+            <p><strong>Diagnosis Information:</strong> {{ obj2 }}</p>
+        </div>
+
+        {% if disease_info %}
+        <div class="additional-info">
+            <h3>Additional Information:</h3>
+            <p>{{ disease_info }}</p>
+        </div>
+        {% else %}
+        <div class="additional-info">
+            <h3>Additional Information:</h3>
+            <p>No additional information available for this disease.</p>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+</body>
+
+</html>

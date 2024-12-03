@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif, Arial;
+        }
+
+        body {
+            background-color: white;
+            color: #514945;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #F9C0AB;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 6px;
+        }
+
+        nav ul li a {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            background-color: #0A97B0;
+        }
+
+        nav ul li a:hover {
+            background-color: #F5918F;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 20px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .text-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transform: translateX(-100px);
+        }
+
+        .text-section h1 {
+            font-size: 45px;
+            color: #894242;
+            margin-bottom: 20px;
+        }
+
+        .text-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #514945;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-section img {
+            max-width: 150%;
+            height: auto;
+            border-radius: 0;
+            background-color: white;
+            transform: translateX(40px);
+        }
+
+        .diseases {
+            margin: 50px auto;
+            text-align: left;
+            max-width: 1200px;
+        }
+
+        .diseases h1 {
+            text-align: center;
+            color: #894242;
+            margin-bottom: 20px;
+        }
+
+        .disease-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .disease {
+            background: #F9F1F0;
+            flex: 1 1 calc(33.33% - 20px); /* Three boxes per row */
+            padding: 20px;
+            margin: 0;
+            border-left: 6px solid #D55C5A;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .disease h2 {
+            color: #894242;
+            margin-bottom: 10px;
+        }
+
+        .disease p {
+            color: #514945;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #514945;
+            color: white;
+            margin-top: 40px;
+        }
+
+                .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #444;
+        }
+
+        .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;  /* Light gray background to make the section stand out */
+    border-radius: 12px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 32px;  /* Larger font size for better visibility */
+        color: #2a9d8f;  /* Using a color from your palette */
+        font-family: 'Arial', sans-serif;  /* Clean, modern font */
+    }
+
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 30px;  /* Adding gap between feature boxes */
+        margin-bottom: 50px;
+    }
+
+    .feature {
+        flex: 1 1 45%;
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        text-align: center;
+    }
+
+
+    .feature img {
+        width: 100px;
+        margin-bottom: 20px;
+        border-radius: 50%;  /* Circular image for a clean look */
+    }
+
+    .feature h3 {
+        font-size: 22px;
+        color: #F5918F;  /* Accent color for headers */
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .feature p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #514945;  /* Darker text color for better readability */
+        font-family: 'Georgia', serif;  /* Professional serif font for text */
+    }
+
+        .ai-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #DFF2EB;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ai-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap; /* Ensures layout is responsive */
+        }
+
+        .ai-image {
+            flex: 1; /* Adjusts image size proportionally */
+            text-align: center; /* Center the image inside its container */
+        }
+
+        .ai-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Optional: Adds rounded corners */
+        }
+
+        .ai-text {
+            flex: 1.5;
+            text-align: left;
+        }
+
+        .ai-text h2 {
+            font-size: 28px;
+            color: #2a9d8f;
+            margin-bottom: 20px;
+        }
+
+        .ai-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #514945;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/login" id="log">Login</a></li>
+                <li><a href="/signup" id="sign">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <div class="text-section">
+                <h1>Skin Disease Diagnosis</h1>
+                <p>We’re here to support you in taking care of your skin. Share a photo of the affected area, and we will help provide valuable insights into your skin’s health.</p>
+            </div>
+            <div class="image-section">
+                <img src="https://img.freepik.com/free-vector/tiny-dermatologists-examining-skin-patient-hospital_74855-17896.jpg?t=st=1729444902~exp=1729448502~hmac=c8503e1edc22a8e107009c47c1645590d3c1ebb8dd3602efb2dfbba1af055e6d&w=996" alt="Examining Skin">
+            </div>
+        </div>
+    </main>
+        <div class="features-container">
+            <!-- Why Section  -->
+            <h1 class="section-title">Why is Skin Disease Diagnosis worth using?</h1>
+            <div class="features">
+                <div class="feature">
+                    <img src="https://static.tildacdn.com/tild6234-6337-4861-a631-333530323239/ai_icon.png" alt="Smart Feature">
+                    <h3>Smart</h3>
+                    <p>Our Skin Disease Diagnosis system uses advanced image processing and machine learning algorithms to identify various skin diseases with remarkable accuracy.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://icon-library.com/images/easy-icon-png/easy-icon-png-4.jpg" alt="Simple Feature">
+                    <h3>Simple</h3>
+                    <p>Upload an image of the affected area, and our system will analyze it instantly. Within seconds, you'll receive the diagnosis .</p>
+                </div>
+                <div class="feature">
+                    <img src="https://cdn4.iconfinder.com/data/icons/time-blue-line/64/167_clock-time-date-management-nonstop-annual-512.png" alt="Accessible Feature">
+                    <h3>Accessible</h3>
+                    <p>Available 24/7, our platform can be accessed from anywhere, making it easy for you to monitor your skin health anytime. Stay informed on the go.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://fusionsi.com.au/wp-content/uploads/icon-affordable.png" alt="Affordable Feature">
+                    <h3>Affordable</h3>
+                    <p>Our innovative technology offers a cost-effective solution for skin disease detection, saving time and resources .</p>
+                </div>
+            </div>
+        </div>
+
+    <section class="diseases">
+        <h1>About Skin Diseases</h1>
+        <div class="disease-container">
+            <div class="disease">
+                <h2>Cellulitis</h2>
+                <p>Cellulitis is a bacterial skin infection that affects the deeper layers of the skin and underlying tissues...</p>
+            </div>
+
+            <div class="disease">
+                <h2>Impetigo</h2>
+                <p>Impetigo is a highly contagious bacterial skin infection that commonly affects children...</p>
+            </div>
+
+            <div class="disease">
+                <h2>Athlete's Foot</h2>
+                <p>Athlete's foot is a common fungal infection affecting the skin of the feet, especially between the toes...</p>
+            </div>
+
+            <div class="disease">
+                <h2>Ringworm</h2>
+                <p>Ringworm is a fungal infection that forms a ring-like pattern on the skin, often causing itching...</p>
+            </div>
+
+            <div class="disease">
+                <h2>Shingles</h2>
+                <p>Shingles is caused by the varicella-zoster virus, the same virus that causes chickenpox...</p>
+            </div>
+
+            <div class="disease">
+                <h2>Chickenpox</h2>
+                <p>Chickenpox is a contagious viral infection causing an itchy rash with red spots and blisters...</p>
+            </div>
+
+            <div class="disease">
+                <h2>Nail Fungus</h2>
+                <p>Nail fungus is a fungal infection that affects the nails, causing them to become discolored...</p>
+            </div>
+
+            <div class="disease">
+                <h2>Cutaneous Larva Migrans</h2>
+                <h2>Ans</h2>
+                <p>Cutaneous larva migrans is a skin condition caused by the larvae of hookworms that burrow into the skin...</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="ai-section">
+        <div class="ai-content">
+            <div class="ai-image">
+                <img src="https://news.mit.edu/sites/default/files/images/202103/ai-skin-cancer-detection.jpg" alt="AI Analysis">
+            </div>
+            <div class="ai-text">
+                <h2>How does Skin Disease Diagnosis analyze images?</h2>
+                <p>Our AI-powered system uses machine learning algorithms trained on thousands of dermatological images to differentiate between various skin diseases.</p>
+                <p>It analyzes features like asymmetry, color, and texture to deliver accurate and comprehensive results.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; Skin Disease Diagnosis.</p>
+    </footer>
+</body>
+</html>
