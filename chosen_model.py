@@ -33,8 +33,8 @@ def load_images_and_labels(data_dir):
 
 
 # Load data
-train_data_dir = r'C:\Users\elist\OneDrive\Desktop\PY_INFO\Task_2\Task_2\Skin Disease Trained Data Set\skin-disease-datasaet\train_set'
-test_data_dir = r'C:\Users\elist\OneDrive\Desktop\PY_INFO\Task_2\Task_2\Skin Disease Trained Data Set\skin-disease-datasaet\test_set'
+train_data_dir = 'Skin Disease Trained Data Set/skin-disease-datasaet/train_set'
+test_data_dir = 'Skin Disease Trained Data Set/skin-disease-datasaet/test_set'
 
 # Load training and test data
 X_train_images, y_train = load_images_and_labels(train_data_dir)
